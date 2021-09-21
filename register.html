@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sweatalert.css">
+    <!-- <link rel="stylesheet" href="css/styleval.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
+    <style>
+        body {
+            background: #222D32;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-box {
+            margin-top: 75px;
+            height: auto;
+            background: #1A2226;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        #fctrial {
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .login-key {
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+            /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+        }
+
+        .login-title {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+        }
+
+        .login-form {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        input[type=text] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            margin-bottom: 20px;
+            padding-left: 0px;
+            color: #ECF0F5;
+        }
+
+        input[type=password] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            padding-left: 0px;
+            margin-bottom: 20px;
+            color: #ECF0F5;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+            outline: 0px;
+        }
+
+        .form-control:focus {
+            border-color: inherit;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-bottom: 2px solid #0DB8DE;
+            outline: 0;
+            background-color: #1A2226;
+            color: #ECF0F5;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0;
+        }
+
+        label {
+            margin-bottom: 0px;
+        }
+
+        .form-control-label {
+            font-size: 10px;
+            color: #6C6C6C;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline-primary {
+            border-color: #0DB8DE;
+            color: #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #0DB8DE;
+            right: 0px;
+        }
+
+        .login-btm {
+            float: left;
+        }
+
+        .login-button {
+            padding-right: 0px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .login-text {
+            text-align: left;
+            padding-left: 0px;
+            color: #A2A4A4;
+        }
+
+        .loginbttm {
+            padding: 0px;
+        }
+    </style>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer ></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js" defer ></script> -->
+</head>
+
+<body>
+
+    <div id="deviceready" class="blink">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 login-box">
+                    <div class="col-lg-12 login-key">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-lg-12 login-title">
+                        Sign Up
+                    </div>
+
+                    <div class="col-lg-12 login-form">
+                        <div class="col-lg-12 login-form">
+                            <form action="" id="form1" name="form1">
+
+                                <div class="form-control" id="fctrial">
+                                    <label>Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Enter Username">
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span id="error_msg" style="display: none;color: red;"></span>
+                                </div>
+                                <div class="form-control" id="fctrial">
+                                    <label>Email</label>
+                                    <input type="text" name="email" id="email" placeholder="Enter Email">
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span id="error_msg" style="display: none;color: red;"></span>
+                                </div>
+                                <div class="form-control" id="fctrial">
+                                    <label>password</label>
+                                    <input type="password" name="password" id="password" placeholder="Enter password">
+                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span id="error_msg" style="display: none;color: red;"></span>
+                                </div>
+                                <div class="form-group">
+
+                                    <select name="company" id="company" class="form-control input-lg">
+                                        <option value="" id="companyv">Select company</option>
+                                    </select>
+                                    <br />
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="department" id="department" class="form-control input-lg">
+                                        <option value="">Select department</option>
+                                    </select>
+                                    <br />
+                                    <!-- <button class="btn btn-btn-primary" id="departmentclick" >Click</button> -->
+                                </div>
+
+
+
+
+
+                                <div class="form-group">
+                                    <label class="form-control-label">Organizational email address</label>
+                                    <input type="text" class="form-control" name="org_email" id="org_email"
+                                        placeholder="Organization email">
+                                    <span class="text-danger"></span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-control-label">HR email address</label>
+                                    <input type="text" class="form-control" name="hremail" id="hremail"
+                                        placeholder="Enter hr email">
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">HOD email address</label>
+                                    <input type="text" class="form-control" name="hodemail" id="hodemail"
+                                        placeholder="Enter hod email">
+                                    <span class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label">Employee experience(in years)</label>
+                                    <input type="text" class="form-control" name="empexp" id="empexp"
+                                        placeholder="emp experience">
+                                    <span class="text-danger"></span>
+                                </div>
+                                <!-- <div class="form-group">
+                                <label class="form-control-label">Confirm Password</label>
+                                <input type="password" class="form-control"  name="cpassword" placeholder="Re enter password">
+                                <span class="text-danger"></span>
+                            </div> -->
+                                <row>
+                                    <p><button id="btnclick" type="button">Take front face pic</button></p>
+                                    <p><button id="btnupload" type="button" onclick="checkimage()">Upload</button></p>
+                                    <p id="msg"></p>
+                                </row>
+
+                                <row>
+                                    <p><button id="btnclickleft" type="button">Take left angle face pic</button></p>
+                                    <p><button id="btnuploadleft" type="button" onclick="checkimage()">Upload</button>
+                                    </p>
+                                    <p id="msg"></p>
+                                </row>
+
+                                <row>
+                                    <p><button id="btnclickright" type="button">Take right angle face pic</button></p>
+                                    <p><button id="btnuploadright" type="button" onclick="checkimage()">Upload</button>
+                                    </p>
+                                    <p id="msg"></p>
+                                </row>
+
+                                <div class="col-lg-12 loginbttm">
+
+                                    <div class="col-lg-6 login-btm login-button" style="margin-top: 5px;">
+                                        <button type="button" id="sub" name="sub" class="btn btn-outline-primary">Sign
+                                            Up</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <a href="index.html">Already have account, Sign In</a>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="js/sweat.js"></script>
+    <script src="js/register.js"></script>
+    <!-- <script src="jquery-validation/dist/jquery.validate.min.js"></script> -->
+    <!-- <script src="js/form-validation.js"></script> -->
+
+
+    <script>
+
+
+        //check connection and geolocation 
+
+
+        // var connecttype='';
+        // document.addEventListener("deviceready", onDeviceReady, false);
+        // function onDeviceReady() {   
+
+
+        $(document).ready(function () {
+
+            getcompanyname();
+
+            function getcompanyname() {
+                $.ajax({
+                    //type: "GET",
+                    url: "http://192.168.0.101/cordovatask2/Auth/dropdowncompany",
+                    dataType: 'html',   //expect html to be returned                
+                    success: function (response) {
+                        //$("#company").html(response); 
+
+                        console.log("helo frm ajax");
+                        console.log(response);
+
+                        response = JSON.parse(response);
+                        if (response) {
+                            $.each(response, function (i, responsearray) {
+                                console.log('index: ' + i + ',value: ' + console.log(responsearray));
+                                $('#company').append($('<option>', {
+                                    value: responsearray.id,
+                                    text: responsearray.company_name
+                                }));
+                            });
+
+                            $("#company").select2({
+                                placeholder: "Select Organisation",
+                                allowClear: true,
+                                tags: false,
+                            });
+                        } else {
+                        }
+                    }
+
+                });
+            }
+
+
+
+
+
+            //dept
+
+            $('#company').on('select2:select', function (e) {
+                //$('#departmentloader').show();//SHOW LOADER THAT DEPARTMENTS ARE LOADING UNTILL AJAX CALL GETS RESPONSE.
+
+
+                $('#department').html('<option></option>');//CLEARS THE DROPDOWN OPTIONS OF DEPARTMENT IF PREVIOUSLY POPULATED.
+                //$("#department").prop("disabled", true);//DISABLES DEPARTMENT DROPDOWN UNTILL THE OPTIONS ARE FETCHED FROM DATABASE.
+                // {
+                //     "id": 1,
+                //     "text": "Tyto alba",    IN DATA VARIABLE OPTIONS
+                //     "genus": "Tyto",
+                //     "species": "alba"
+                //   }
+                var data = e.params.data;//IN DATA VARIABLE WE GET OBJECT AS SHOWN ABOVE.
+                console.log(data);
+                var value = data.id;// YOU CAN GET VALUE PARAMETER OF OPTION SELECTED by choosing data.id
+                //var text=data.company_name; //YOU CAN GET TEXT OF OPTION SELECTED by choosing data.text
+                console.log(value);
+                //alert(value);//HERE CHECK IF YOU ARE GETTING PROPER DATA OF THE ORGANISATION YOU SELECTED.
+                //alert(text);
+
+                getdepartmentlist(value);
+            });
+
+
+            function getdepartmentlist(value) {
+                console.log("Inside dept list fnc");
+                $.ajax({
+                    type: "POST",
+                    url: "http://192.168.0.101/cordovatask2/Auth/dropdowndept",
+                    data: { value: value },
+                    dataType: 'html',   //expect html to be returned                
+                    success: function (response) {
+
+
+                        console.log(response);
+                        response = JSON.parse(response);
+                        if (response) {
+                            $.each(response, function (i, responsearray) {
+                                console.log('index: ' + i + ',value: ' + console.log(responsearray));
+                                $('#department').append($('<option>', {
+                                    value: responsearray.department_id,
+                                    text: responsearray.department
+                                }));
+                            });
+
+
+                            $("#department").select2({
+                                placeholder: "Select Department",
+                                allowClear: true,
+                                tags: false,
+                            });
+                        } else {
+                        }
+                    }
+
+
+                });
+            }
+
+
+        });//doc rdy
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
